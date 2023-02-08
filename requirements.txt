@@ -1,0 +1,10 @@
+nbabel
+simpleitk
+wandb
+fsspec
+optax
+equinox
+alive_progress
+torch
+torchvision
+positional-encodings[pytorch]

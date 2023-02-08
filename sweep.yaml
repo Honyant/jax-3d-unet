@@ -1,0 +1,41 @@
+program: train.py
+
+method: random
+
+early_terminate:
+  type: hyperband
+  min_iter: 3
+
+metric:
+  name: val_loss
+
+parameters:
+  max_learning_rate:
+    distribution: log_uniform_values
+    min: 5e-2
+    max: 5e-1
+
+  min_learning_rate:
+    distribution: log_uniform_values
+    min: 1e-7
+    max: 5e-4
+
+  batches:
+    distribution: log_uniform_values
+    min: 1e3
+    max: 3e4
+
+  warmup:
+    values: 5e2
+  
+  depthwise:
+    values: [True, False]
+  
+  reduce_act_and_norm:
+    values: [True, False]
+
+  kernel_size:
+    values: [3,5]
+  
+  norm:
+    values: ["LayerNorm", "GroupNorm"]
